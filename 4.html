@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interest and Skills</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('WhatsApp Image 2024-04-06 at 19.04.39_73254b3a.jpg');
+        }
+        .container {
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 20px;
+            background-color: #f5efef;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-height: 800px;
+            width: 800px;
+            height:350px;
+            position: relative;
+        }
+        h2 {
+            text-align: center;
+        }
+        select, input[type="checkbox"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Interest and Skills</h2>
+        <label for="interest">Enter your Interest:</label>
+        <select id="interest" onchange="updateSkillsDropdown()">
+            <option value="">Please select</option>
+            <option value="DSA">DSA</option>
+            <option value="Webdevelopment">Web Development</option>
+            <option value="Blockchain">Blockchain</option>
+            <option value="AI&ML">AI & ML</option>
+        </select>
+        <br><br>
+        <form>
+            <label for="skills">Your Skills:</label>
+            <select id="skills">
+                <option value="ai">AI&ML</option>
+                <option value="DSA">DSA</option>
+                <option value="Blockchain">Blockchain</option>
+                <option value="Flutter">Flutter</option>
+            </select>
+            <br><br>
+            <label for="noSkills">If no Skills:</label>
+            <div class="button-container">
+                <button type="button">Click here to learn skills</button>
+                <button type="button" id="next">Next</button>
+            </div>
+          
+        </form>
+    </div>
+
+    <script>
+        function updateSkillsDropdown() {
+            var interestDropdown = document.getElementById('interest');
+            var skillsDropdown = document.getElementById('skills');
+            var selectedInterest = interestDropdown.value;
+            skillsDropdown.innerHTML = '';
+            var skillsOptions = [];
+
+            switch (selectedInterest) {
+                case 'DSA':
+                    skillsOptions = ['Array', 'Pointers', 'Recursion', 'LinkedList','Stacks','Queues','Trees','Sorting Algorithm','Searching Algorithm','Searching Algorithm','Dynamics Programming'];
+                    break;
+                case 'Webdevelopment':
+                    skillsOptions = ['HTML', 'CSS', 'JavaScript','Backend'];
+                    break;
+                case 'Blockchain':
+                    skillsOptions = ['Services Layer', 'Network Layer', 'Data Layer'];
+                    break;
+                case 'AI&ML':
+                    skillsOptions = ['Deep Learning','AI and Internet of Things','Reinforcement Learning','Robotics','Natural Language Processing'];
+                    break;
+                default:
+                    skillsOptions = ['Please select'];
+                    break;
+            }
+            skillsOptions.forEach(function(option) {
+                var newOption = document.createElement('option');
+                newOption.text = option;
+                newOption.value = option.toLowerCase().replace(/\s/g, '');
+                skillsDropdown.add(newOption);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var button = document.querySelector(".button-container button");
+            button.addEventListener("click", function() {
+                var selectedInterest = document.getElementById('interest').value;
+                if (selectedInterest === "DSA") {
+                    window.open("5.html", "_self");
+                } 
+               else if(selectedInterest === "Webdevelopment")
+                {
+                    window.open("6.html","_self");
+                }else if(selectedInterest === "Blockchain"){
+                    window.open("7.html","_self");
+                }else{
+                    window.open("8.html","_self");
+                }
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function() {
+            var button = document.querySelector("#next");
+            button.addEventListener("click", function() {
+                var selectedInterest = document.getElementById('interest').value;
+                if (selectedInterest === "DSA") {
+                    window.open("21.html", "_self");
+                } 
+               else if(selectedInterest === "Webdevelopment")
+                {
+                    window.open("10.html","_self");
+                }else if(selectedInterest === "Blockchain"){
+                    window.open("11.html","_self");
+                }else{
+                    window.open("12.html","_self");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
